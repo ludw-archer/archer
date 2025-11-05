@@ -1,0 +1,47 @@
+1. Criar o arquivo do serviço
+
+sudo nano /etc/systemd/system/timeshift.service
+
+[Unit]
+Description=Run Timeshift snapshot
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/timeshift --create --comments "Auto snapshot" --tags O
+
+2. Criar o arquivo do timer
+
+sudo nano /etc/systemd/system/timeshift.timer
+
+[Unit]
+Description=Daily Timeshift snapshot
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+
+3. Recarregar o systemd
+
+sudo systemctl daemon-reload
+
+4. Ativar e iniciar o timer
+
+sudo systemctl enable --now timeshift.timer
+
+5. Verificar se está ativo
+
+systemctl list-timers | grep timeshift
+
+...
+
+timeshift.timer   ...   n/a   n/a   active
+
+6. Testar
+
+sudo systemctl start timeshift.service
+journalctl -u timeshift.service
+
+

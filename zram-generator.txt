@@ -1,0 +1,32 @@
+sudo nano /etc/systemd/zram-generator.conf
+
+[zram0]
+zram-size = ram / 2
+compression-algorithm = lz4
+swap-priority = 100
+
+sudo systemctl daemon-reexec
+
+sudo systemctl status dev-zram0.swap
+
+zramctl && free -h && swapon --show –bytes
+
+sudo nano /etc/sysctl.d/99-swappiness.conf
+
+vm.swappiness=25
+vm.vfs_cache_pressure=50
+vm.watermark_scale_factor=75
+
+sudo sysctl --system
+cat /proc/sys/vm/swappiness
+
+pacman -Qs systemd-swap
+
+systemctl list-unit-files | grep swap
+
+dev-zram0.swap
+swap.target
+
+zramctl && free -h && swapon --show –bytes
+
+...

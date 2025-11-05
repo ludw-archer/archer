@@ -1,0 +1,16 @@
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a device; this may
+# be used with UUID= as a more robust way to name devices that works even if
+# disks are added and removed. See fstab(5).
+#
+UUID=BE68-36B7                            /boot/efi  vfat  rw,noatime,nosuid,nodev,noexec,fmask=0027,dmask=0027                       0 2
+UUID=2d171109-9391-4fa3-92e1-82bb4d722adb /boot      ext4  rw,noatime,nosuid,nodev,errors=remount-ro                                  0 2
+UUID=5975830b-00dc-43cb-8c01-085f3ada6e53 none       swap  sw,pri=10                                                                  0 0
+UUID=6ce490f4-32e3-49e3-926a-6926d1205f30 /          btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,subvol=/@      0 0
+UUID=6ce490f4-32e3-49e3-926a-6926d1205f30 /home      btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,subvol=/@home  0 0
+UUID=6ce490f4-32e3-49e3-926a-6926d1205f30 /var/cache btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,subvol=/@cache 0 0
+UUID=6ce490f4-32e3-49e3-926a-6926d1205f30 /var/log   btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,subvol=/@log   0 0
+tmpfs                                     /tmp       tmpfs nosuid,nodev,mode=1777,size=8G                                             0 0
+tmpfs                                     /var/tmp   tmpfs nosuid,nodev,mode=1777,size=8G                                             0 0
+

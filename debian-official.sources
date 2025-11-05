@@ -1,0 +1,82 @@
+# ========================================================================
+#  Debian Trixie + Linux Mint Debian Edition (LMDE 7 "Gigi")
+#  Arquivo: /etc/apt/sources.list.d/debian-official.sources
+#  Formato: deb822
+#  Função:  Repositórios oficiais Debian e Linux Mint (Cinnamon)
+#  Autoridade: senhor (configuração técnica personalizada)
+# ========================================================================
+
+# ------------------------------------------------------------------------
+# Repositórios Debian – Base principal e atualizações
+# ------------------------------------------------------------------------
+Types: deb deb-src
+URIs: https://deb.debian.org/debian
+Suites: trixie trixie-updates
+Components: main contrib non-free non-free-firmware
+Architectures: amd64
+PDiffs: yes
+Check-Valid-Until: yes
+Enabled: yes
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+# ------------------------------------------------------------------------
+# Repositórios Debian – Segurança
+# ------------------------------------------------------------------------
+Types: deb deb-src
+URIs: https://security.debian.org/debian-security
+Suites: trixie-security
+Components: main contrib non-free non-free-firmware
+Architectures: amd64
+PDiffs: yes
+Check-Valid-Until: yes
+Enabled: yes
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+# ------------------------------------------------------------------------
+# Repositórios Debian – Backports
+# ------------------------------------------------------------------------
+Types: deb deb-src
+URIs: https://deb.debian.org/debian
+Suites: trixie-backports
+Components: main contrib non-free non-free-firmware
+Architectures: amd64
+PDiffs: yes
+Check-Valid-Until: yes
+Enabled: yes
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+# ------------------------------------------------------------------------
+# Repositórios Linux Mint (LMDE 7 "Gigi") – mirrors brasileiros
+# ------------------------------------------------------------------------
+# Chave de assinatura oficial do repositório Mint:
+#   Fingerprint: 302F0738F465C1535761F965A6616109451BBBF2
+#   Pacote: linuxmint-keyring 2022.06.21
+#   Local instalado: /usr/share/keyrings/mint-archive-keyring.gpg
+# Este keyring garante a validação OpenPGP dos pacotes Mint.
+# Observação: Link simbólico opcional em /usr/share/keyrings já existente.
+Types: deb
+URIs: https://mint-packages.c3sl.ufpr.br
+Suites: gigi
+Components: main upstream import backport
+Architectures: amd64
+PDiffs: yes
+Enabled: yes
+Signed-By: /usr/share/keyrings/mint-archive-keyring.gpg
+
+# ========================================================================
+# Notas técnicas:
+# - Este arquivo unifica os repositórios Debian e LMDE em formato deb822.
+# - A base Debian fornece estabilidade e compatibilidade de pacotes.
+# - O repositório Mint adiciona pacotes exclusivos (Cinnamon, mintsystem, etc.).
+# - “Enabled: yes” não força uso automático de backports nem de deb-src.
+# - Atualização recomendada:
+#       sudo apt update && sudo apt full-upgrade
+# - Conferência de fontes:
+#       apt policy mintsystem cinnamon
+# 
+# /etc/apt/sources.list.d/
+# └── debian-official.sources  ← este arquivo (único e consolidado)
+#
+# sudo apt update
+# apt-cache policy base-files mintsystem cinnamon
+# ========================================================================
