@@ -6,11 +6,12 @@ backup_dir=~/.local/desktop_backups/applications_backup_$(date +%Y%m%d_%H%M%S)
 mkdir -p "$backup_dir"
 
 apps_to_move=(
-    "qv4l2.desktop"
-    "qvidcap.desktop"
     "avahi-discover.desktop"
     "bssh.desktop"
     "bvnc.desktop"
+    "nvtop.desktop"
+    "qv4l2.desktop"
+    "qvidcap.desktop"
 )
 
 for app in "${apps_to_move[@]}"; do
