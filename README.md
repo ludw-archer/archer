@@ -85,8 +85,6 @@ The system is structured as follows:
 git clone https://github.com/ludw-archer/archer.git
 cd archer
 
-# Copy configuration files to system directories (optional due to the miscellaneous archives)
-sudo cp -r etc/* /etc/
-cp -r home/.zshrc ~/.zshrc
+Note: Copy each configuration files to specifics directories, due to the miscellaneous archives.
 
 ...
