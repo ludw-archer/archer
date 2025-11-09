@@ -1,3 +1,5 @@
+User-Installed Extensions:
+
 AlphabeticalAppGrid@stuarthayhurst
 appindicatorsupport@rgcjonas.gmail.com
 apps-menu@gnome-shell-extensions.gcampax.github.com
