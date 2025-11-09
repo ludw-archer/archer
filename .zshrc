@@ -97,6 +97,8 @@ alias cl-all='sudo paccache -ruk0'
 alias cl-broken='sudo pacman -Dk && sudo pacman -Qk'
 alias cl-cache='sudo paccache -rk1'
 alias cl-orphs='orphs=$(pacman -Qtdq 2>/dev/null); [[ -n "$orphs" ]] && sudo pacman -Rns $orphs || echo "No orphaned packages found."'
+alias dracut-zen='sudo dracut --force --hostonly --verbose /boot/initramfs-linux-zen.img '
+alias dracut-fall='sudo dracut --force --verbose /boot/initramfs-linux-zen-fallback.img'
 alias updata='sudo pacman -Syyu'
 alias update='sudo pacman -Syu'
 
@@ -137,7 +139,6 @@ alias re-load='exec zsh'
 alias wget='wget --hsts-file="$HOME/.cache/wget-hsts"'
 alias yta='yt-dlp -f "bestaudio" --extract-audio --audio-format mp3 --audio-quality 5 --postprocessor-args "ffmpeg:-ar 24000 -ac 2"'
 alias ytv='yt-dlp -f "bestvideo[height<=720]+bestaudio/best[height<=720]" --merge-output-format mp4 --postprocessor-args "ffmpeg:-ar 24000 -ac 2"'
-
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000

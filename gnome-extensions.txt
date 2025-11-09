@@ -16,8 +16,8 @@ native-window-placement@gnome-shell-extensions.gcampax.github.com
 places-menu@gnome-shell-extensions.gcampax.github.com
 screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com
 search-light@icedman.github.com
+simple-weather@romanlefler.com
 status-icons@gnome-shell-extensions.gcampax.github.com
-system-monitor@gnome-shell-extensions.gcampax.github.com
 tilingshell@ferrarodomenico.com
 transparent-window-moving@noobsai.github.com
 user-theme@gnome-shell-extensions.gcampax.github.com
