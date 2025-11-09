@@ -85,6 +85,6 @@ The system is structured as follows:
 git clone https://github.com/ludw-archer/archer.git
 cd archer
 
-Note: Copy each configuration files to specifics directories, due to the miscellaneous archives.
+Note: Due to the miscellaneous archives, copy each configuration file to your specific directorie.
 
 ...
