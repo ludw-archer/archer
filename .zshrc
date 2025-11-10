@@ -137,8 +137,8 @@ alias q='exit'
 alias re-alias='source ~/.zshrc'
 alias re-load='exec zsh'
 alias wget='wget --hsts-file="$HOME/.cache/wget-hsts"'
-alias yta='yt-dlp -f "bestaudio" --extract-audio --audio-format mp3 --audio-quality 5 --postprocessor-args "ffmpeg:-ar 24000 -ac 2"'
-alias ytv='yt-dlp -f "bestvideo[height<=720]+bestaudio/best[height<=720]" --merge-output-format mp4 --postprocessor-args "ffmpeg:-ar 24000 -ac 2"'
+alias yta='yt-dlp --cookies-from-browser firefox -f "bestaudio" --extract-audio --audio-format mp3 --audio-quality 5 --postprocessor-args "ffmpeg:-ar 24000 -ac 2"'
+alias ytv='yt-dlp --cookies-from-browser firefox -f "bestvideo[height<=720]+bestaudio/best[height<=720]" --merge-output-format mp4 --postprocessor-args "ffmpeg:-ar 24000 -ac 2"'
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
