@@ -1,0 +1,25 @@
+Verificar o estado atual
+
+systemctl status systemd-timesyncd.service
+timedatectl status
+
+Editar a configuração (se necessário)
+
+sudo nano /etc/systemd/timesyncd.conf
+
+Aplicar a configuração
+
+sudo systemctl restart systemd-timesyncd
+sudo timedatectl set-ntp true
+
+Garantir que o RTC está configurado de forma correta (UTC)
+
+sudo timedatectl set-local-rtc 0 --adjust-system-clock
+sudo hwclock --systohc
+
+Validar sincronização
+
+timedatectl show | grep NTPSynchronized
+timedatectl show-timesync --all
+timedatectl timesync-status
+

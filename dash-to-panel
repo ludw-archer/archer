@@ -1,0 +1,24 @@
+[/]
+animate-appicon-hover-animation-extent={'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}
+dot-position='BOTTOM'
+dot-style-focused='DASHES'
+dot-style-unfocused='DASHES'
+extension-version=72
+global-border-radius=0
+group-apps=true
+hotkeys-overlay-combo='TEMPORARILY'
+panel-anchors='{"CMN-0x00000000":"MIDDLE"}'
+panel-element-positions='{"CMN-0x00000000":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":true,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"centered"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}'
+panel-lengths='{"CMN-0x00000000":100}'
+panel-positions='{"CMN-0x00000000":"TOP"}'
+panel-sizes='{}'
+prefs-opened=true
+trans-border-use-custom-color=true
+trans-border-width=4
+trans-panel-opacity=0.29999999999999999
+trans-use-border=true
+trans-use-custom-bg=true
+trans-use-custom-gradient=true
+trans-use-custom-opacity=true
+trans-use-dynamic-opacity=true
+window-preview-title-position='TOP'

@@ -1,47 +1,10 @@
-1. Criar o arquivo do serviço
+sudo fstrim -av
 
-sudo nano /etc/systemd/system/timeshift.service
+sudo systemctl enable fstrim.timer
+sudo systemctl start fstrim.timer
+sudo systemctl status fstrim.timer
 
-[Unit]
-Description=Run Timeshift snapshot
+systemctl list-timers --no-pager
 
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/timeshift --create --comments "Auto snapshot" --tags O
-
-2. Criar o arquivo do timer
-
-sudo nano /etc/systemd/system/timeshift.timer
-
-[Unit]
-Description=Daily Timeshift snapshot
-
-[Timer]
-OnCalendar=daily
-Persistent=true
-
-[Install]
-WantedBy=timers.target
-
-3. Recarregar o systemd
 
 sudo systemctl daemon-reload
-
-4. Ativar e iniciar o timer
-
-sudo systemctl enable --now timeshift.timer
-
-5. Verificar se está ativo
-
-systemctl list-timers | grep timeshift
-
-...
-
-timeshift.timer   ...   n/a   n/a   active
-
-6. Testar
-
-sudo systemctl start timeshift.service
-journalctl -u timeshift.service
-
-

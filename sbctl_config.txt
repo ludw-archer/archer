@@ -1,0 +1,37 @@
+sbctl verify
+sbctl create-keys
+sbctl verify
+sbctl sign -s ... (sign each entrie listed by verify command)
+sbctl verify
+sbctl enroll-keys
+sbctl list-enrolled-keys
+sbctl status
+
+nano /etc/sysctl.d/99-sysctl.conf
+
+kernel.kptr_restrict = 2
+kernel.dmesg_restrict = 1
+kernel.randomize_va_space = 2
+fs.protected_hardlinks = 1
+fs.protected_symlinks = 1
+
+sysctl --system 
+
+[...]
+
+mkdir -p /etc/pacman.d/hooks (necessary)
+
+nano /etc/pacman.d/hooks/99-secureboot.hook
+
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = linux-zen
+Target = linux-lts
+Target = systemd
+
+[Action]
+Description = Signing linux-zen linux-lts kernels initramfs systemd-boot
+When = PostTransaction
+Exec = /bin/sh -c 'sbctl sign -s /boot/vmlinuz-linux-zen 2>/dev/null || true && sbctl sign -s /boot/vmlinuz-linux-lts 2>/dev/null || true && sbctl sign -s /boot/initramfs-linux-zen*.img 2>/dev/null || true && sbctl sign -s /boot/initramfs-linux-lts*.img 2>/dev/null || true && sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI 2>/dev/null || true && sbctl sign -s /boot/EFI/systemd/systemd-bootx64.efi 2>/dev/null || true'
+

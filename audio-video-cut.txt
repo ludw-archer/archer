@@ -1,0 +1,43 @@
+VÍDEO
+
+Método 1 — recodifica apenas o início (~lossless):
+
+ffmpeg -ss 00:04:43 -i input.mp4 -to 00:04:52 -c:v libx264 -c:a copy output.mp4
+
+
+Método 2 — corte exato sem recodificar todo o vídeo:
+
+ffmpeg -i input.mp4 -ss 00:04:43 -to 00:09:35 -avoid_negative_ts 1 -c copy output.mp4
+
+
+
+ÁUDIO
+
+
+🎧 MÉTODO 01 — Corte EXATO + Recodificação mínima para áudio reencode controlado com 100% de precisão no início - fim.
+
+
+ffmpeg -ss 00:00:00 -i input.mp4 -to 00:00:00 -acodec libmp3lame -b:a 112k -ar 48000 -ac 2 output.mp3
+
+
+🎧 MÉTODO 02 — Corte SEM perda (copy) + precisão aceitável que não recodifica — qualidade idêntica; precisão depende dos frames.
+
+Este método funciona somente se o áudio for MP3. Se o vídeo tiver áudio AAC / Opus / etc não dá para usar copy mantendo MP3 — seria necessário recodificar.
+
+Caso o áudio já seja MP3:
+
+
+ffmpeg -i input.mp4 -ss 00:00:00 -to 00:00:00 -acodec copy output.mp3
+
+
+🎧 Se o arquivo original NÃO for MP3 que é a situação mais comum: YouTube → AAC/Opus
+
+Use este “método híbrido”:
+
+
+ffmpeg -i input.mp4 -ss 00:00:00 -to 00:00:00 -acodec libmp3lame -b:a 112k -ar 48000 -ac 2 output.mp3
+
+
+Esse comando já considera a realidade dos formatos do YouTube.
+
+...

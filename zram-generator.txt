@@ -1,9 +1,16 @@
+apt search systemd-swap
+
+sudo systemctl disable --now zramswap.service
+sudo systemctl mask zramswap.service
+
 sudo nano /etc/systemd/zram-generator.conf
 
 [zram0]
 zram-size = ram / 2
 compression-algorithm = lz4
 swap-priority = 100
+fs-type = swap
+writeback-dev = /dev/null
 
 sudo systemctl daemon-reexec
 
@@ -13,14 +20,16 @@ zramctl && free -h && swapon --show –bytes
 
 sudo nano /etc/sysctl.d/99-swappiness.conf
 
-vm.swappiness=25
-vm.vfs_cache_pressure=50
-vm.watermark_scale_factor=75
+vm.swappiness = 40
+vm.watermark_scale_factor = 150
+vm.vfs_cache_pressure = 75
+vm.min_free_kbytes = 131072
+vm.page-cluster = 0
+vm.dirty_background_ratio = 5
+vm.dirty_ratio = 15
 
 sudo sysctl --system
 cat /proc/sys/vm/swappiness
-
-pacman -Qs systemd-swap
 
 systemctl list-unit-files | grep swap
 
@@ -29,4 +38,8 @@ swap.target
 
 zramctl && free -h && swapon --show –bytes
 
-...
+Reset:
+
+sudo swapoff /dev/zram0
+sudo systemctl restart systemd-zram-setup@zram0.service
+sudo swapon /dev/zram0
