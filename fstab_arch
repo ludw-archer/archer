@@ -1,0 +1,26 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+# codepage=437 iocharset=ascii shortname=mixed utf8
+# 'systemctl daemon-reload'
+
+UUID=a74fd3e3-dc93-4ea5-89c4-9588a8f38ec6 /                     btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,subvol=/@      0 0
+UUID=a74fd3e3-dc93-4ea5-89c4-9588a8f38ec6 /home                 btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,subvol=/@home  0 0
+UUID=a74fd3e3-dc93-4ea5-89c4-9588a8f38ec6 /var/cache/pacman/pkg	btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,subvol=/@pkg   0 0
+UUID=a74fd3e3-dc93-4ea5-89c4-9588a8f38ec6 /var/log              btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,subvol=/@log   0 0
+UUID=E3F6-9950                            /boot                 vfat  rw,noatime,nosuid,nodev,dmask=0077,fmask=0077,umask=0077,errors=remount-ro 0 2
+tmpfs                                     /tmp                  tmpfs nosuid,nodev,mode=1777,size=8G                                             0 0
+tmpfs                                     /var/tmp              tmpfs nosuid,nodev,mode=1777,size=4G                                             0 0
+
+
+
+UUID= /boot/efi      vfat  rw,noatime,nosuid,nodev,noexec,dmask=0077,fmask=0077,umask=0077                         0 2
+UUID= /boot          ext4  rw,noatime,nosuid,nodev,errors=remount-ro                                               1 2
+UUID= none           swap  sw,pri=10                                                                               0 0
+UUID= /              btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,commit=30,subvol=@          0 0
+UUID= /home          btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,commit=30,subvol=@home      0 0
+UUID= /var/cache     btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,commit=30,subvol=@cache     0 0
+UUID= /var/log       btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,commit=30,subvol=@log       0 0
+UUID= /var/snapshots btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,commit=30,subvol=@snapshots 0 0
+tmpfs /tmp           tmpfs nosuid,nodev,mode=1777,size=8G                                                          0 0
+tmpfs /var/tmp       tmpfs nosuid,nodev,mode=1777,size=4G                                                          0 0
+

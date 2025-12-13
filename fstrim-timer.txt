@@ -1,0 +1,9 @@
+sudo fstrim -av
+
+sudo systemctl enable fstrim.timer
+sudo systemctl start fstrim.timer
+sudo systemctl status fstrim.timer
+
+systemctl list-timers --no-pager
+
+sudo systemctl daemon-reload

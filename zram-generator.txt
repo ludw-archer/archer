@@ -1,4 +1,4 @@
-apt search systemd-swap
+pacman -Ss systemd-swap
 
 sudo systemctl disable --now zramswap.service
 sudo systemctl mask zramswap.service

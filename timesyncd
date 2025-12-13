@@ -1,25 +1,32 @@
-Verificar o estado atual
-
 systemctl status systemd-timesyncd.service
-timedatectl status
 
-Editar a configuração (se necessário)
+timedatectl status
 
 sudo nano /etc/systemd/timesyncd.conf
 
-Aplicar a configuração
+
+[Time]
+NTP=gps.ntp.br a.ntp.br b.ntp.br c.ntp.br
+FallbackNTP=a.st1.ntp.br b.st1.ntp.br c.st1.ntp.br d.st1.ntp.br
+
+RootDistanceMaxSec=5
+PollIntervalMinSec=32
+PollIntervalMaxSec=2048
+ConnectionRetrySec=30
+SaveIntervalSec=60
+
 
 sudo systemctl restart systemd-timesyncd
+
 sudo timedatectl set-ntp true
 
-Garantir que o RTC está configurado de forma correta (UTC)
-
 sudo timedatectl set-local-rtc 0 --adjust-system-clock
+
 sudo hwclock --systohc
 
-Validar sincronização
-
 timedatectl show | grep NTPSynchronized
+
 timedatectl show-timesync --all
+
 timedatectl timesync-status
 
