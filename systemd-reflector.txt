@@ -1,0 +1,38 @@
+/etc/systemd/system/reflector.service
+
+[Unit]
+Description=Atualiza mirrorlist do Arch Linux via Reflector
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/reflector --country CA,BR,PT,NO,CH --protocol https --latest 15 --score 10 --delay 1 --sort rate --save /etc/pacman.d/mirrorlist
+
+
+/etc/systemd/system/reflector.timer
+
+[Unit]
+Description=Executa o Reflector semanalmente
+
+[Timer]
+OnCalendar=weekly
+Persistent=true
+RandomizedDelaySec=30m
+
+[Install]
+WantedBy=timers.target
+
+
+sudo systemctl daemon-reload
+
+sudo systemctl enable --now reflector.timer
+
+sudo systemctl start reflector.service
+
+systemctl list-timers | grep reflector
+
+journalctl -u reflector.service
+
+
+...
