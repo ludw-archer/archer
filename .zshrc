@@ -1,8 +1,3 @@
-if alias lsd &>/dev/null; then
-  unalias lsd
-fi
-unset -f lsd 2>/dev/null
-
 typeset -g POWERLEVEL10K_INSTANT_PROMPT=quiet
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -51,14 +46,13 @@ else
   export EDITOR='gedit'
 fi
 
-if command -v lsd >/dev/null 2>&1 && ! alias lsd &>/dev/null; then
-  alias dir='lsd -l --group-dirs=first --icon=always --color=auto'
-  alias l='lsd --classify --icon=always --color=auto'
-  alias la='lsd -A --classify --icon=always --color=auto'
-  alias ll='lsd -al --group-dirs=first --icon=always --color=auto'
-  alias lla='lsd -al --group-dirs=first --icon=always --color=auto'
-  alias ls='lsd --icon=always --color=auto'
-  alias lsdonly='lsd -l --directory-only --icon=always --color=auto'
+if command -v eza >/dev/null 2>&1 && ! alias eza &>/dev/null; then
+  alias dir='eza -l --group-directories-first --icons --color=auto'
+  alias l='eza --classify --icons --color=auto'
+  alias la='eza -A --classify --icons --color=auto'
+  alias ll='eza -al --group-directories-first --icons --color=auto'
+  alias lla='eza -al --group-directories-first --icons --color=auto'
+  alias ls='eza --icons --color=auto'
 else
   alias dir='ls -l --color=auto'
   alias l='ls -CF --color=auto'
@@ -109,6 +103,13 @@ bindkey '^U' autosuggest-clear
 if [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+sysdaemon() { sudo systemctl daemon-reexec; }
+sysedit() { sudo systemctl edit "$@"; }
+sysreload() { sudo systemctl reload "$@"; }
+sysrestart() { sudo systemctl restart "$@"; }
+sysstart() { sudo systemctl start "$@"; }
+sysstop() { sudo systemctl stop "$@"; }
 
 extract() {
   if [[ -f "$1" ]]; then
