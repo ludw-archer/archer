@@ -1,0 +1,72 @@
+1. No cliente [usuário normal]
+
+ssh-keygen -t rsa -b 4096
+ls ~/.ssh/
+
+Confirmar id_rsa e id_rsa.pub
+
+2. No servidor — permitir senha temporariamente (drop-in)
+
+sudo nano /etc/ssh/sshd_config.d/10-xxxxx.conf
+
+Configuração temporária mínima:
+
+Port ?????
+PasswordAuthentication yes
+PubkeyAuthentication yes
+AuthenticationMethods publickey [comentar ou remover temporariamente]
+AllowUsers "user"
+AuthorizedKeysFile .ssh/authorized_keys
+
+Aplicar:
+
+sudo sshd -t
+sudo systemctl restart sshd
+sudo sshd -T | egrep -i 'passwordauthentication|authenticationmethods|pubkeyauthentication'
+
+3. No cliente — copiar a chave
+
+ssh-copy-id -p ????? "user"@host
+
+4. No cliente — testar acesso
+
+ssh -p ????? "user"@host
+
+5. No servidor — endurecer novamente [somente chave]
+
+sudo nano /etc/ssh/sshd_config.d/10-xxxxx.conf
+
+Configuração final segura:
+
+Port ?????
+PasswordAuthentication no
+PubkeyAuthentication yes
+AuthenticationMethods publickey
+AllowUsers "user"
+AuthorizedKeysFile .ssh/authorized_keys
+PermitRootLogin prohibit-password
+
+Aplicar:
+
+sudo sshd -t
+sudo systemctl restart sshd
+sudo sshd -T | egrep -i 'passwordauthentication|authenticationmethods|pubkeyauthentication'
+
+6. Validação final [cliente]
+
+ssh -p ????? "user"@host [não deve pedir senha]
+
+...
+
+
+Port ?????
+MaxAuthTries 3
+LoginGraceTime 20
+Protocol 2
+PasswordAuthentication no
+PubkeyAuthentication yes
+AuthenticationMethods publickey
+AllowUsers "user"
+AuthorizedKeysFile .ssh/authorized_keys
+PermitRootLogin prohibit-password
+

@@ -1,0 +1,27 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+# codepage=437 iocharset=ascii shortname=mixed utf8
+# 'systemctl daemon-reload'
+
+UUID= /boot/efi             vfat  rw,noatime,nosuid,nodev,dmask=0077,fmask=0077,umask=0077,errors=remount-ro 0 2
+UUID= /boot                 ext4  rw,noatime,nosuid,nodev,errors=remount-ro                                  1 2
+UUID= none                  swap  sw,pri=10                                                                  0 0
+UUID= /                     btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,subvol=@       0 0
+UUID= /home                 btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,subvol=@home   0 0
+UUID= /var/log              btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,subvol=@log    0 0
+UUID= /var/cache/pacman/pkg btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,subvol=@pkg    0 0
+tmpfs /tmp                  tmpfs rw,nosuid,nodev,mode=1777,size=8G                                          0 0
+tmpfs /var/tmp              tmpfs rw,nosuid,nodev,mode=1777,size=4G                                          0 0
+tmpfs /dev/shm              tmpfs rw,nosuid,nodev,noexec                                                     0 0
+
+
+
+UUID= /                     btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,subvol=/@                        0 0
+UUID= /home                 btrfs rw,noatime,compress=zstd:2,ssd,discard=async,space_cache=v2,subvol=/@home                    0 0
+UUID= /var/cache/pacman/pkg btrfs rw,noatime,nosuid,nodev,noexec,compress=zstd:2,ssd,discard=async,space_cache=v2,subvol=/@pkg 0 0
+UUID= /var/log              btrfs rw,noatime,nosuid,nodev,noexec,compress=zstd:2,ssd,discard=async,space_cache=v2,subvol=/@log 0 0
+UUID= /boot                 vfat  rw,noatime,nosuid,nodev,noexec,dmask=0077,fmask=0077,umask=0077,errors=remount-ro            0 2
+tmpfs /tmp                  tmpfs rw,nosuid,nodev,noexec,mode=1777,size=8G                                                     0 0
+tmpfs /var/tmp              tmpfs rw,nosuid,nodev,noexec,mode=1777,size=4G                                                     0 0
+tmpfs /dev/shm              tmpfs rw,nosuid,nodev,noexec                                                                       0 0
+

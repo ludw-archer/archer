@@ -1,0 +1,13 @@
+Normais:
+
+sudo pacman -S gnu-free-fonts inter-font ttf-anonymous-pro ttf-atkinson-hyperlegible ttf-bitstream-vera ttf-caladea ttf-carlito ttf-cascadia-code ttf-charis ttf-charis-sil ttf-cormorant ttf-crimson ttf-crimson-pro ttf-crimson-pro-variable ttf-croscore ttf-dejavu ttf-doulos-sil ttf-droid ttf-eurof ttf-fantasque-sans-mono ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-gentium ttf-gentium-book ttf-hack ttf-ibm-plex ttf-inconsolata ttf-input ttf-jetbrains-mono ttf-lato ttf-liberation ttf-libertinus ttf-linux-libertine ttf-linux-libertine-g ttf-material-icons ttf-material-symbols-variable ttf-mona-sans ttf-monaspace-frozen ttf-monaspace-variable ttf-monofur ttf-monoid ttf-montserrat ttf-nunito ttf-opensans ttf-overpass ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
+
+Nerds:
+
+sudo pacman -S ttf-0xproto-nerd ttf-3270-nerd ttf-agave-nerd ttf-anonymouspro-nerd ttf-arimo-nerd ttf-bigblueterminal-nerd ttf-bitstream-vera-mono-nerd ttf-cascadia-code-nerd ttf-cascadia-mono-nerd ttf-cousine-nerd ttf-daddytime-mono-nerd ttf-dejavu-nerd ttf-envycoder-nerd ttf-fantasque-nerd ttf-firacode-nerd ttf-go-nerd ttf-hack-nerd ttf-heavydata-nerd ttf-iawriter-nerd ttf-ibmplex-mono-nerd ttf-inconsolata-go-nerd ttf-inconsolata-lgc-nerd ttf-inconsolata-nerd ttf-input-nerd ttf-intone-nerd ttf-iosevka-nerd ttf-iosevkaterm-nerd ttf-iosevkatermslab-nerd ttf-jetbrains-mono-nerd ttf-lekton-nerd ttf-liberation-mono-nerd ttf-lilex-nerd ttf-martian-mono-nerd ttf-meslo-nerd ttf-monofur-nerd ttf-monoid-nerd ttf-mononoki-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono ttf-profont-nerd ttf-proggyclean-nerd ttf-recursive-nerd ttf-roboto-mono-nerd ttf-sharetech-mono-nerd ttf-sourcecodepro-nerd ttf-space-mono-nerd ttf-terminus-nerd ttf-tinos-nerd ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-victor-mono-nerd ttf-zed-mono-nerd
+
+
+Depurada:
+
+gnu-free-fonts inter-font ttf-atkinson-hyperlegible ttf-ibm-plex ttf-roboto ttf-opensans ttf-overpass ttf-montserrat ttf-nunito ttf-crimson-pro ttf-crimson-pro-variable ttf-libertinus ttf-linux-libertine ttf-linux-libertine-g ttf-charis-sil ttf-gentium ttf-jetbrains-mono ttf-fira-code ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono ttf-meslo-nerd ttf-iosevka-nerd ttf-victor-mono-nerd
+

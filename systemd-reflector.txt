@@ -1,7 +1,7 @@
 /etc/systemd/system/reflector.service
 
 [Unit]
-Description=Atualiza mirrorlist do Arch Linux via Reflector
+Description=Update Mirror List by Reflector
 Wants=network-online.target
 After=network-online.target
 
@@ -13,7 +13,7 @@ ExecStart=/usr/bin/reflector --country CA,BR,PT,NO,CH --protocol https --latest 
 /etc/systemd/system/reflector.timer
 
 [Unit]
-Description=Executa o Reflector semanalmente
+Description=Scheduler Reflector
 
 [Timer]
 OnCalendar=weekly
